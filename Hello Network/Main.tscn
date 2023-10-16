@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dl5f57uacdcpr"]
+[gd_scene load_steps=2 format=3 uid="uid://dl5f57uacdcpr"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_oxixn"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,3 +9,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_oxixn")
+
+[node name="HostButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_right = 100.0
+offset_bottom = 50.0
+text = "Join"
+
+[node name="Address" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 236.0
+offset_bottom = 81.0
+text = "127.0.0.1"
+
+[connection signal="pressed" from="HostButton" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="JoinButton" to="." method="_on_join_pressed"]
