@@ -20,15 +20,18 @@ func _on_host_pressed():
 	# peers are actors/agents on a network, e.g. clients or the host
 	var peer = ENetMultiplayerPeer.new()
 	# IP for server is set using a peer's set_bind_ip method, but defaults to *
-	# Setting the IP to * binds the game to all interfaces
+	# Setting the IP to * makes the game listen to all available network interfaces on the computer,
+	# e.g. the loop-back interface on 127.0.0.1 and your computer's LAN interface (192.168.x.y)
 	var error = peer.create_server(DEFAULT_PORT)	
 	if error:
 		print("error code " + str(error) + ", see create_server docs")
 		return
-	# register our hosting peer with the scene tree multiplayer API
+	# Register our hosting peer with the scene tree multiplayer API
+	# The scene tree is basically what you see in the scene tab page in the editor
+	# For more information on scene tree, see:
+	# https://docs.godotengine.org/en/stable/getting_started/introduction/key_concepts_overview.html#the-scene-tree
 	multiplayer.multiplayer_peer = peer
 	_disable_buttons()
-
 
 # Bare minimum to join a host:
 # We make a network peer (e.g. a client), which joins a server.
@@ -43,6 +46,9 @@ func _on_join_pressed():
 		print("error code " + str(error) + ", see create_client docs")
 		return
 	# register our hosting peer with the scene tree multiplayer API
+	# The scene tree is basically what you see in the scene tab page in the editor
+	# For more information on scene tree, see:
+	# https://docs.godotengine.org/en/stable/getting_started/introduction/key_concepts_overview.html#the-scene-tree
 	multiplayer.multiplayer_peer = peer
 	_disable_buttons()
 	

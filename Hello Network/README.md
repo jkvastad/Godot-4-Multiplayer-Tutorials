@@ -1,7 +1,7 @@
 # Hello Network
 Tutorial project showing minimal connection in Godot. A callback is also connected to the peer_connected signal to print connection status to the editor. 
 
-See comments in Main.gd for code explanation and the step by step recreation file for recreation details.
+See comments in Main.gd for code explanation and the step by step recreation file for recreation details. Remember to use F1 in the editor to search the docs, also ctrl + click on names in the code will open the relevant manual page.
 
 ## Example output from connecting 3 clients to one host, sorted by peer
 
