@@ -1,7 +1,9 @@
 extends Control
 
-# Script mostly based on the high level multiplayer lobby implementation in the docs
+# Script mostly based on the high level multiplayer lobby implementation in the docs:
 # https://docs.godotengine.org/en/stable/tutorials/networking/high_level_multiplayer.html#example-lobby-implementation
+# Code style according to the gdscript styleguide:
+# https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html
 
 # Default game server port. Can be any number between 1024 and 49151.
 # Not present on the list of registered or common ports as of October 2023:
