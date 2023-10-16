@@ -1,0 +1,8 @@
+New project
+Control node
+Add two BaseButtons - rename to HostButton and JoinButton
+Rescale project resolution: Project -> Project Settings... -> Display -> Window -> Viewport Width/Height (e.g. 240/160, Game Boy style)
+Attach Script to Control node (see Main.gd script)
+Select the host button, go to the Node tab, connect the BaseButton pressed() signal to Main.gds _on_host_pressed():
+Select the join button, go to the Node tab, connect the BaseButton pressed() signal to Main.gds _on_join_pressed():
+Debug -> Run Multiple Instances -> Run two to four instances
