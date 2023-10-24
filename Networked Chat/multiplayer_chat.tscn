@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=3 uid="uid://de3kulxyaqmpm"]
+
+[ext_resource type="Script" path="res://multiplayer_chat.gd" id="1_dwccj"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_cjv7d"]
+properties/0/path = NodePath("MultiplayerChat/ChatBox:text")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="MultiplayerChat" type="Control"]
+layout_mode = 3
+script = ExtResource("1_dwccj")
+
+[node name="ChatBox" type="TextEdit" parent="."]
+layout_mode = 0
+offset_right = 324.0
+offset_bottom = 235.0
+
+[node name="SetSynchAuthorityIDInput" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 93.0
+offset_right = 441.0
+offset_bottom = 124.0
+placeholder_text = "SynchID..."
+
+[node name="SetSynchAuthorityButton" type="Button" parent="SetSynchAuthorityIDInput"]
+layout_mode = 0
+offset_left = 117.0
+offset_right = 192.0
+offset_bottom = 31.0
+text = "Set ID"
+
+[node name="SetChatBoxAuthorityIDInput" type="LineEdit" parent="."]
+offset_left = 324.0
+offset_top = 124.0
+offset_right = 441.0
+offset_bottom = 155.0
+placeholder_text = "ChatID..."
+
+[node name="SetChatBoxAuthorityButton" type="Button" parent="SetChatBoxAuthorityIDInput"]
+layout_mode = 0
+offset_left = 117.0
+offset_right = 192.0
+offset_bottom = 31.0
+text = "Set ID"
+
+[node name="ChatBoxAuthorityIDLine" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 31.0
+offset_right = 441.0
+offset_bottom = 62.0
+editable = false
+
+[node name="ChatAuthorityLabel" type="Label" parent="ChatBoxAuthorityIDLine"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 4.0
+offset_right = 232.0
+offset_bottom = 30.0
+text = "ChatBox Authority
+"
+
+[node name="SelfAuthorityIDLine" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 324.0
+offset_right = 441.0
+offset_bottom = 31.0
+text = "1"
+editable = false
+
+[node name="SelfIDLabel" type="Label" parent="SelfAuthorityIDLine"]
+layout_mode = 0
+offset_left = 117.0
+offset_right = 232.0
+offset_bottom = 26.0
+text = "Your network peer ID"
+
+[node name="SynchronizerAuthorityIDLine" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 62.0
+offset_right = 441.0
+offset_bottom = 93.0
+editable = false
+
+[node name="SynchronizerAuthorityLabel" type="Label" parent="SynchronizerAuthorityIDLine"]
+layout_mode = 0
+offset_left = 117.0
+offset_right = 296.0
+offset_bottom = 26.0
+text = "Synchronizer Authority
+"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+root_path = NodePath("../..")
+replication_config = SubResource("SceneReplicationConfig_cjv7d")
+
+[connection signal="pressed" from="SetSynchAuthorityIDInput/SetSynchAuthorityButton" to="." method="_set_synchronizer_ID"]
+[connection signal="pressed" from="SetChatBoxAuthorityIDInput/SetChatBoxAuthorityButton" to="." method="_set_chat_box_ID"]
