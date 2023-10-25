@@ -4,9 +4,9 @@ Debug -> Run Multiple Instances -> Run 2 instances
 Control Node
 Add Host/Join Button
 Add Address LineEdit for writing IP
-Add host/join script functionality (see current project and Hello Network tutorial for details)
+Add host/join script functionality (see current project for details)
 Connect the buttons' pressed() signals to their respective functions in the script
-Make a new scene (e.g. Scene -> New Scene), select User Interface (Control Node) and name the scene file "multiplayer_chat"
+Make a new scene (e.g. Scene -> New Scene), select User Interface (Control Node) and save the scene as "multiplayer_chat"
 Add 4 LineEdits, 3 Labels, 1 Button, 1 TextEdit, and 1 MultiplayerSynchronizer. For names and layout see project.
 Add script to scene root node (see project for script details)
 Connect the button to _set_synchronizer_ID()

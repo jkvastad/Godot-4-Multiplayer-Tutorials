@@ -18,6 +18,7 @@ func _on_join_pressed():
 	peer.create_client(address, DEFAULT_PORT)
 	multiplayer.multiplayer_peer = peer
 	_disable_buttons()
+	_spawn_chat()
 	
 func _disable_buttons():
 	$HostButton.disabled = true

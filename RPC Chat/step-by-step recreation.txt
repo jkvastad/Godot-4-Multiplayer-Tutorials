@@ -1,0 +1,12 @@
+New project
+Control Node
+Save scene as Main
+Project -> Project Settings... -> Display -> Window Viewport Width/Height to 640/480
+Debug -> Run Multiple Instances -> Run 2 instances
+Add Host/Join Button
+Add Address LineEdit for writing IP
+Add host/join script functionality (see current project for details)
+Connect the buttons' pressed() signals to their respective functions in the script
+Add a control node called "Chats" and configure its transform to where you want the chat to spawn
+Make a new scene (e.g. Scene -> New Scene), select User Interface (Control Node) and save the scene as "multiplayer_chat"
+Add 4 LineEdits, 1 TextEdit, 2 Labels, and 2 Buttons. See project for layout and configuration.

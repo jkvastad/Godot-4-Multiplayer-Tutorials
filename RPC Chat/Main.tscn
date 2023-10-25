@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6rc6w2dtbyxb"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_7vfdw"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7vfdw")
+
+[node name="HostButton" type="Button" parent="."]
+offset_right = 123.0
+offset_bottom = 40.0
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 123.0
+offset_right = 251.0
+offset_bottom = 40.0
+text = "Join"
+
+[node name="Address" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 251.0
+offset_bottom = 71.0
+text = "127.0.0.1"
+
+[node name="Chats" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 71.0
+offset_right = 40.0
+offset_bottom = 111.0
+
+[connection signal="pressed" from="HostButton" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="JoinButton" to="." method="_on_join_pressed"]
