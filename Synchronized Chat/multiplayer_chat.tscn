@@ -10,6 +10,7 @@ properties/0/watch = false
 
 [node name="MultiplayerChat" type="Control"]
 layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_dwccj")
 
 [node name="ChatBox" type="TextEdit" parent="."]
@@ -33,6 +34,7 @@ offset_bottom = 31.0
 text = "Set ID"
 
 [node name="SetChatBoxAuthorityIDInput" type="LineEdit" parent="."]
+layout_mode = 0
 offset_left = 324.0
 offset_top = 124.0
 offset_right = 441.0
@@ -68,7 +70,6 @@ layout_mode = 0
 offset_left = 324.0
 offset_right = 441.0
 offset_bottom = 31.0
-text = "1"
 editable = false
 
 [node name="SelfIDLabel" type="Label" parent="SelfAuthorityIDLine"]

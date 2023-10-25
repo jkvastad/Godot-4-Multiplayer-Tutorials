@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk3fmvv551tpn"]
+[gd_scene load_steps=2 format=3 uid="uid://dk3fmvv551tpn"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_p5qdm"]
-[ext_resource type="PackedScene" uid="uid://de3kulxyaqmpm" path="res://multiplayer_chat.tscn" id="2_0s3tm"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -32,11 +31,17 @@ offset_right = 176.0
 offset_bottom = 81.0
 text = "127.0.0.1"
 
-[node name="MultiplayerChat" parent="." instance=ExtResource("2_0s3tm")]
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://multiplayer_chat.tscn")
+spawn_path = NodePath("../Chats")
+
+[node name="Chats" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 0
-offset_top = 81.0
-offset_bottom = 81.0
+anchor_top = 0.169
+anchor_bottom = 0.169
+offset_top = -0.12001
+offset_right = 40.0
+offset_bottom = 39.88
 
 [connection signal="pressed" from="HostButton" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="JoinButton" to="." method="_on_join_pressed"]

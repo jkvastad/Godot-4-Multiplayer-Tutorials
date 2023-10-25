@@ -5,12 +5,10 @@ var chat_box = $ChatBox
 @onready
 var multiplayer_synchronizer = $MultiplayerSynchronizer
 
-func _ready():
-	#TODO - should this get triggered after MultiplayerSpawner spawns the scene?
-	multiplayer.connected_to_server.connect(_update_self_ID)	
+func _ready():	
+	_update_self_ID()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	_update_ID_display()
 
 func _update_ID_display():
@@ -23,7 +21,7 @@ func _set_synchronizer_ID():
 	multiplayer_synchronizer.set_multiplayer_authority(int($SetSynchAuthorityIDInput.text))
 	
 func _set_chat_box_ID():	
-	$ChatBox.set_multiplayer_authority(int($SetChatBoxAuthorityIDInput.text))
+	chat_box.set_multiplayer_authority(int($SetChatBoxAuthorityIDInput.text))
 	
-func _update_self_ID():
+func _update_self_ID():	
 	$SelfAuthorityIDLine.text = str(multiplayer.get_unique_id())

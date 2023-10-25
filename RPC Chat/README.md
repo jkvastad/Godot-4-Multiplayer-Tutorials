@@ -17,8 +17,7 @@ Synchronization is not supported for Object type properties, like Resource.
 Properties that are unique to each peer, like the instance IDs of Objects (see Object.get_instance_id) or RIDs, will also not work in synchronization.
 TODO: What CAN be synchronized? Built in types?
 Add things to the property window when the synchronizer is selected in the editor (screenshot). Properties will be synchronized if a matching node path exists in connected clients scene trees. (TODO: test removing nodes at client/host, what is the synchronizer behavior?)
-Pushes selected properties from the multiplayer authority of the synchronizer. Note how in the project the authority of the box itself does not matter - only the synchronizer ID matters.
-Note that if you have 3 peers; 1 host and 2 clients, setting the clients synchronizers to the same ID while leaving the hosts on a separate ID will not synchronize the clients. If the host sets its synchronizer ID to the same as the clients, all peers will now synchronize - synchronization must go via the host, but the peer with the authority decides what the target property state is.
+Pushes selected properties from the multiplayer authority of the synchronizer. Note how in the project the authority of the box itself does not matter - only the synchronizer ID matters. Note that when changing synchronizer ID there is a large variable delay ranging from a few seconds to above one minute before synchronization starts.
 
 ### MultiplayerSpawner
 Pushes nodes under the spawn path and allowed in the auto spawn list from the multiplayer authority.
