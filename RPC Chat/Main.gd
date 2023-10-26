@@ -8,6 +8,7 @@ func _on_host_pressed():
 	multiplayer.multiplayer_peer = peer
 	_disable_buttons()
 	_spawn_chat()
+	multiplayer
 	
 func _on_join_pressed():
 	var address = $Address.text

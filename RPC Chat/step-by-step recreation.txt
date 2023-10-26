@@ -10,3 +10,4 @@ Connect the buttons' pressed() signals to their respective functions in the scri
 Add a control node called "Chats" and configure its transform to where you want the chat to spawn
 Make a new scene (e.g. Scene -> New Scene), select User Interface (Control Node) and save the scene as "multiplayer_chat"
 Add 4 LineEdits, 1 TextEdit, 2 Labels, and 2 Buttons. See project for layout and configuration.
+

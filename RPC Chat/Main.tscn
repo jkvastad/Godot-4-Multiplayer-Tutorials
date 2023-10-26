@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_7vfdw")
 
 [node name="HostButton" type="Button" parent="."]
+layout_mode = 0
 offset_right = 123.0
 offset_bottom = 40.0
 text = "Host"
