@@ -1,0 +1,103 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqtsa8t2j2cyi"]
+
+[ext_resource type="Script" path="res://multiplayer_chat.gd" id="1_uj1tf"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uj1tf")
+
+[node name="SelfIDDisplay" type="LineEdit" parent="."]
+layout_mode = 0
+offset_right = 298.0
+offset_bottom = 36.0
+editable = false
+
+[node name="SelfIDLabel" type="Label" parent="SelfIDDisplay"]
+layout_mode = 0
+offset_left = 298.0
+offset_right = 407.0
+offset_bottom = 36.0
+text = "Your ID"
+
+[node name="NodeAuthorityIDDisplay" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = 36.0
+offset_right = 298.0
+offset_bottom = 72.0
+text = "1"
+editable = false
+
+[node name="NodeAuthorityIDLabel" type="Label" parent="NodeAuthorityIDDisplay"]
+layout_mode = 0
+offset_left = 298.0
+offset_right = 407.0
+offset_bottom = 36.0
+text = "Node Authority ID"
+
+[node name="NodeAuthorityIDInput" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = 72.0
+offset_right = 298.0
+offset_bottom = 108.0
+placeholder_text = "Set node authority ID..."
+
+[node name="SetRecipientButton" type="Button" parent="NodeAuthorityIDInput"]
+layout_mode = 0
+offset_left = 298.0
+offset_right = 407.0
+offset_bottom = 35.655
+text = "Set Authority"
+
+[node name="ChatInput" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = 107.0
+offset_right = 298.0
+offset_bottom = 143.0
+placeholder_text = "Write to all..."
+
+[node name="SendButton" type="Button" parent="ChatInput"]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 1.0
+offset_right = 407.0
+offset_bottom = 37.0
+text = "Send All"
+
+[node name="DMInput" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = 179.0
+offset_right = 298.0
+offset_bottom = 215.0
+placeholder_text = "Direct message..."
+
+[node name="DMSendButton" type="Button" parent="DMInput"]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 1.0
+offset_right = 407.0
+offset_bottom = 37.0
+text = "Direct Message"
+
+[node name="DMRecipientID" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = 143.0
+offset_right = 298.0
+offset_bottom = 179.0
+placeholder_text = "Direct message ID..."
+
+[node name="ChatLog" type="TextEdit" parent="."]
+layout_mode = 0
+offset_top = 215.0
+offset_right = 424.0
+offset_bottom = 396.0
+placeholder_text = "Chat Log"
+editable = false
+
+[connection signal="pressed" from="NodeAuthorityIDInput/SetRecipientButton" to="." method="_set_authority_ID"]
+[connection signal="pressed" from="ChatInput/SendButton" to="." method="_add_to_chat"]
+[connection signal="pressed" from="DMInput/DMSendButton" to="." method="_direct_message"]

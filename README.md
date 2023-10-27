@@ -1,1 +1,11 @@
-Work in progress! The ambition is to create tutorials to document the problems i run into while learning godot 4 multiplayer networking from scratch.
+# Godot 4 Multiplayer Tutorials
+A few tutorials on how to get started with multiplayer in Godot.
+
+## Hello Network
+Tutorial project showing minimal network connection in Godot.
+
+## Synchronized Chat
+Tutorial project showing a minimal multiplayer "chat" in Godot, using Godot's MultiplayerSpawner and MultiplayerSynchronizer.
+
+## RPC Chat
+Tutorial project showing a minimal multiplayer chat in Godot, using Remote Procedure Calls (RPC).

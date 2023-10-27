@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk3fmvv551tpn"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_p5qdm"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p5qdm")
+
+[node name="HostButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_right = 100.0
+offset_bottom = 50.0
+text = "Join"
+
+[node name="Address" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 176.0
+offset_bottom = 81.0
+text = "127.0.0.1"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://multiplayer_chat.tscn")
+spawn_path = NodePath("../Chats")
+
+[node name="Chats" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.169
+anchor_bottom = 0.169
+offset_top = -0.12001
+offset_right = 40.0
+offset_bottom = 39.88
+
+[connection signal="pressed" from="HostButton" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="JoinButton" to="." method="_on_join_pressed"]
