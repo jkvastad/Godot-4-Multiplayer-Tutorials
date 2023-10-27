@@ -26,3 +26,10 @@ Peer 2024518808 now connected to 1
 Peer 2024518808 now connected to 1888539480
 Peer 2024518808 now connected to 520450720
 ```
+
+## Connecting over IP
+When connecting over IP there are many things that can go wrong. [I previously made a Unity](https://github.com/jkvastad/Minimal-Unity-Netcode-Project) project which discusses several of these problems. While the project specifics are not relevant to Godot, the networking specifics are general to all multiplayer games and you might find them useful. 
+
+Here is the TL;DR version:
+
+![one does not simply connect over ip](https://github.com/jkvastad/Minimal-Unity-Netcode-Project/assets/9295196/7f7f6cb1-ef0b-41cc-930b-ab5cccf9ceed)
