@@ -10,16 +10,16 @@ config_version=5
 
 [application]
 
-config/name="Hello Network"
-run/main_scene="res://Main.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/name="HelloCSharp"
+run/main_scene="res://lobby.tscn"
+config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=240
-window/size/viewport_height=160
+window/size/viewport_width=320
+window/size/viewport_height=240
 
 [dotnet]
 
-project/assembly_name="Hello Network"
+project/assembly_name="HelloCSharp"
