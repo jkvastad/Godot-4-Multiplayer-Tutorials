@@ -16,7 +16,7 @@ public partial class Lobby : Control
     {
         _hostButton.Pressed += HostGame;
         _joinButton.Pressed += JoinGame;        
-        peer.PeerConnected += (peer_id) => GD.Print($"{Multiplayer.GetUniqueId()} now connected to {peer_id}");
+        Multiplayer.PeerConnected += (peer_id) => GD.Print($"{Multiplayer.GetUniqueId()} now connected to {peer_id}");
     }
 
     private void HostGame()
