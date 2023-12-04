@@ -2,10 +2,24 @@
 Tutorial project showing a minimal multiplayer "chat" in Godot, using Godot's MultiplayerSpawner and MultiplayerSynchronizer.
 
 ## Scene replication: RPC vs. MultiplayerSpawner vs. MultiplayerSynchronizer
-In this tutorial we will be looking at scene replication using the MultiplayerSpawner and MultiplayerSynchronizer (Synchronizer/Spawner for short). We will look at RPCs in the RPC Chat tutorial.
+In this tutorial we will be looking at scene replication using the MultiplayerSpawner and MultiplayerSynchronizer (Synchronizer/Spawner for short). We will look at RPCs in the [RPC Chat](https://github.com/jkvastad/Godot-4-Multiplayer-Tutorials/tree/main/RPC%20Chat) tutorial.
 
-### When to use what?
-Spawners and Synchronizers sacrifice flexibility for convenience - they are useful when basic things such as transform position or existence of a node needs to be replicated.
+### MultiplayerSpawner
+MultiplayerSpawner is good for adding and removing nodes at a server or client and have them replicated to other peers.
+
+The way this works is that every [node](https://docs.godotengine.org/en/stable/classes/class_node.html) in the [scene tree](https://docs.godotengine.org/en/stable/tutorials/scripting/scene_tree.html) can be described by a [NodePath](https://docs.godotengine.org/en/stable/classes/class_nodepath.html). When we call [add_child](https://docs.godotengine.org/en/stable/classes/class_node.html#class-node-method-add-child) a node is added and a correspanding path is created. For example in this tutorial when the "multiplayer_chat" scene is added the new node "MultiplayerChat" is inserted into the scene tree at node path "/root/Control/Chats/MultiplayerChat". The MultiplayerSpawner then sends out a request to its counterparts asking "hey, peer with ID x added node /root/Control/Chats/MultiplayerChat, you should too!". A few problems may arise at this point:
+
+* There is already a node at the desired position
+* The desired path does not exists, e.g. Control or Chats may not be in the scene tree, or their order is something other than the specified path. This is why add_child(Node,true) is important so names are consistent.
+* Someone called add_child who is not the authority of the MultiplayerSpawner node. [Nodes have multiplayer authority](https://docs.godotengine.org/en/stable/classes/class_node.html#class-node-method-set-multiplayer-authority), a peer ID used for various networking features. One these features is that only requests coming from the multiplayer authority of the MultiplayerSpawner will actually spawn nodes.
+
+#### Scene tree as visualized in the editor:
+
+![scene_tree_example](https://docs.godotengine.org/en/stable/_images/toptobottom.webp) 
+
+### MultiplayerSynchronizer
+
+TODO: rewrite in progress Synchronizers sacrifice flexibility for convenience - they are useful when basic things such as transform position or existence of a node needs to be replicated.
 
 RPCs sacrifice convenience for flexibility - you could rely solely on RPCs to replicate everything. The trade-off is boiler plate code and manual work for simple replication cases.
 
