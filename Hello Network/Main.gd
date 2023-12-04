@@ -19,6 +19,7 @@ func _ready():
 # Bare minimum to create a host:
 # We make a network peer (e.g. a host), which creates a server.
 # The peer then registers itself with the games MultiplayerAPI as the active peer
+# (Default implementation of MultiplayerAPI is SceneMultiplayer)
 func _on_host_pressed():	
 	# Create a network peer using ENet UDP network library
 	# peers are actors/agents on a network, e.g. clients or the host
@@ -31,7 +32,7 @@ func _on_host_pressed():
 		print("error code " + str(error) + ", see create_server docs")
 		return
 	# Register our hosting peer with the scene tree multiplayer API
-	# The scene tree is basically what you see in the scene tab page in the editor
+	# The scene tree is what you see in the scene tab page in the editor
 	# For more information on scene tree, see:
 	# https://docs.godotengine.org/en/stable/getting_started/introduction/key_concepts_overview.html#the-scene-tree
 	multiplayer.multiplayer_peer = peer
