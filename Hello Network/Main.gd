@@ -10,6 +10,8 @@ extends Control
 # https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
 const DEFAULT_PORT = 8910
 
+@export var exported_line_edit: LineEdit
+
 func _ready():
 	# Callback for running code when a new peer connects
 	multiplayer.peer_connected.connect(_on_player_connected)
