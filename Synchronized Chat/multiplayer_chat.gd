@@ -5,7 +5,7 @@ var chat_box = $ChatBox
 @onready
 var multiplayer_synchronizer = $MultiplayerSynchronizer
 
-func _ready():	
+func _ready():			
 	_update_self_ID()
 
 func _process(_delta):

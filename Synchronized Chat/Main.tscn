@@ -43,5 +43,27 @@ offset_top = -0.12001
 offset_right = 40.0
 offset_bottom = 39.88
 
+[node name="SetSpawnerAuthorityInput" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = 333.0
+offset_right = 161.0
+offset_bottom = 364.0
+placeholder_text = "New  Spawner Id..."
+
+[node name="SetSpawnerAuthorityButton" type="Button" parent="SetSpawnerAuthorityInput"]
+layout_mode = 0
+offset_left = 161.0
+offset_right = 189.0
+offset_bottom = 31.0
+text = "Set Spawner Id"
+
+[node name="SpawnerAuthorityDisplay" type="LineEdit" parent="SetSpawnerAuthorityInput"]
+layout_mode = 0
+offset_top = 31.0
+offset_right = 161.0
+offset_bottom = 62.0
+editable = false
+
 [connection signal="pressed" from="HostButton" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="JoinButton" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="SetSpawnerAuthorityInput/SetSpawnerAuthorityButton" to="." method="_set_spawner_authority"]
