@@ -2,11 +2,7 @@
 Tutorial project showing a minimal multiplayer chat in Godot, using Remote Procedure Calls (RPC).
 
 ## Scene replication: RPC vs. MultiplayerSpawner vs. MultiplayerSynchronizer
-In this tutorial we will be looking at scene replication using RPCs. For MultiplayerSpawner and MultiplayerSynchronizer, see the tutorial Synchronized Chat.
-
-### When to use what?
-Spawners and Synchronizers sacrifice flexibility for convenience - they are useful when basic things such as transform position or existence of a node needs to be replicated.
-RPCs sacrifice convenience for flexibility - you could rely solely on RPCs to replicate everything. The trade-off is boiler plate code and manual work for simple replication cases.
+In this tutorial we will be looking at scene replication using RPCs. For MultiplayerSpawner and MultiplayerSynchronizer, see the tutorial [Synchronized Chat](https://github.com/jkvastad/Godot-4-Multiplayer-Tutorials/tree/main/Synchronized%20Chat).
 
 ## RPC
 Described in the docs under [High Level Multiplayer](https://docs.godotengine.org/en/stable/tutorials/networking/high_level_multiplayer.html#remote-procedure-calls).
@@ -31,7 +27,7 @@ _rpc_add_to_chat.rpc_id(id, message)
 
 Central to understanding RPCs is the concept of the multiplayer authority and its corresponding ID number. The authority ID is both a per node parameter accessible via [Node methods](https://docs.godotengine.org/en/stable/classes/class_node.html#methods), as well as a per multiplayer peer property accessible via a [Node's multiplayer property](https://docs.godotengine.org/en/stable/classes/class_node.html#properties).
 
-Note that it is thus possible to be a peer with one authority ID, and have nodes with other authority IDs (e.g. you are a client but the authority for the nodes is the host).
+Note that it is possible to be a peer with one authority ID, and have nodes with other authority IDs (e.g. you are a client but the authority for the nodes is the host).
 
 ### Mode - authority vs. any_peer
 When receiving an RPC call, a function with mode set to authority will only execute if the sending peer ID matches the multiplayer authority ID of the node to which the script is attached (the receiving node).
