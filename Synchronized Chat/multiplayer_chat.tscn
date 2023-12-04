@@ -3,10 +3,9 @@
 [ext_resource type="Script" path="res://multiplayer_chat.gd" id="1_dwccj"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_cjv7d"]
-properties/0/path = NodePath("MultiplayerChat/ChatBox:text")
+properties/0/path = NodePath("ChatBox:text")
 properties/0/spawn = true
-properties/0/sync = true
-properties/0/watch = false
+properties/0/replication_mode = 1
 
 [node name="MultiplayerChat" type="Control"]
 layout_mode = 3
@@ -96,7 +95,6 @@ text = "Synchronizer Authority
 "
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-root_path = NodePath("../..")
 replication_config = SubResource("SceneReplicationConfig_cjv7d")
 
 [connection signal="pressed" from="SetSynchAuthorityIDInput/SetSynchAuthorityButton" to="." method="_set_synchronizer_ID"]
