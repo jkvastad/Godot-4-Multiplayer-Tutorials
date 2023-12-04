@@ -7,8 +7,7 @@ func _on_host_pressed():
 	peer.create_server(DEFAULT_PORT)
 	multiplayer.multiplayer_peer = peer
 	_disable_buttons()
-	_spawn_chat()
-	multiplayer
+	_spawn_chat()	
 	
 func _on_join_pressed():
 	var address = $Address.text
