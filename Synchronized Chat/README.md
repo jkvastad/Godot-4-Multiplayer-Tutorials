@@ -20,6 +20,7 @@ When we call [add_child](https://docs.godotengine.org/en/stable/classes/class_no
 
 A few problems may arise at this point:
 
+* The scene is not in the receiving spawners Auto Spawn list.
 * There is already a node at the desired position. Make sure only one peer can add replicated nodes!
 * The desired path does not exist, e.g. Control or Chats may not be in the scene tree, or their order is something other than the specified path. **This is why add_child(Node, true) is important!**
 * Someone called add_child who is not the authority of the MultiplayerSpawner node.
