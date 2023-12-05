@@ -5,7 +5,7 @@ Tutorial project showing a minimal multiplayer chat in Godot, using Remote Proce
 In this tutorial we will be looking at scene replication using RPCs. For MultiplayerSpawner and MultiplayerSynchronizer, see the tutorial [Synchronized Chat](https://github.com/jkvastad/Godot-4-Multiplayer-Tutorials/tree/main/Synchronized%20Chat).
 
 ## RPC
-Described in the docs under [High Level Multiplayer](https://docs.godotengine.org/en/stable/tutorials/networking/high_level_multiplayer.html#remote-procedure-calls).
+Described in the docs under [High Level Multiplayer](https://docs.godotengine.org/en/stable/tutorials/networking/high_level_multiplayer.html#remote-procedure-calls) and [Node.rpc](https://docs.godotengine.org/en/stable/classes/class_node.html#class-node-method-rpc). From the latter it is especially notable that **"The call request will only be received by nodes with the same [NodePath](https://docs.godotengine.org/en/stable/classes/class_nodepath.html), including the exact same node name"**. This makes add_child(Node, true) important.
 
 To use an RPC, create a function and annotate it with @rpc e.g.
 
