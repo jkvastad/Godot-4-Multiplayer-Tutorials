@@ -15,11 +15,12 @@ MultiplayerSpawner is useful for adding and removing nodes at a server or client
 
 The way this works is that every [node](https://docs.godotengine.org/en/stable/classes/class_node.html) in the [scene tree](https://docs.godotengine.org/en/stable/tutorials/scripting/scene_tree.html) can be described by a [NodePath](https://docs.godotengine.org/en/stable/classes/class_nodepath.html). 
 
-When we call [add_child](https://docs.godotengine.org/en/stable/classes/class_node.html#class-node-method-add-child) a node is added and a correspanding path is created. For example in this tutorial when the "multiplayer_chat" scene is added the new node "MultiplayerChat" is inserted into the scene tree at node path "/root/Control/Chats/MultiplayerChat". The MultiplayerSpawner then checks its Auto Spawn list for allowed scenes, and if the added scene matches, it sends out a request to its counterparts on the network, asking:
+When we call [add_child](https://docs.godotengine.org/en/stable/classes/class_node.html#class-node-method-add-child) a node is added and a correspanding path is created. For example in this tutorial when the "multiplayer_chat" scene is added the new node "MultiplayerChat" is inserted into the scene tree at node path "/root/Control/Chats/MultiplayerChat". If this node path is a direct child of the MultiplayerSpawner's [spawn_path](https://docs.godotengine.org/en/stable/classes/class_multiplayerspawner.html#class-multiplayerspawner-property-spawn-path), it then checks its Auto Spawn list for allowed scenes, and if the added scene matches, it sends out a request to its counterparts on the network, asking:
 > "hey, peer with ID x added node /root/Control/Chats/MultiplayerChat, you should too!".
 
 A few problems may arise at this point:
 
+* The child was not a direct child of the spawners spawn_path. No nesting allowed! You must construct additional spawners.
 * The scene is not in the receiving spawners Auto Spawn list.
 * There is already a node at the desired position. Make sure only one peer can add replicated nodes!
 * The desired path does not exist, e.g. Control or Chats may not be in the scene tree, or their order is something other than the specified path. **This is why add_child(Node, true) is important!**
