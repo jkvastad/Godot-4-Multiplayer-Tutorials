@@ -27,4 +27,4 @@ func _disable_buttons():
 func _spawn_chat():
 	var chat_scene = load("res://multiplayer_chat.tscn")
 	var chat = chat_scene.instantiate()
-	$Chats.add_child(chat)
+	$Chats.add_child(chat, true)
