@@ -12,3 +12,9 @@ Tutorial project showing a minimal multiplayer "chat" in Godot, using Godot's Mu
 
 ## [RPC Chat](https://github.com/jkvastad/Godot-4-Multiplayer-Tutorials/tree/main/RPC%20Chat)
 Tutorial project showing a minimal multiplayer chat in Godot, using Remote Procedure Calls (RPC).
+
+## Demos
+Demo Projects
+
+### [Concurrent Multiplayer Scenes](https://github.com/jkvastad/Godot-4-Multiplayer-Tutorials/tree/main/Demos/ConcurrentMultiplayerScenes)
+Demo project showing how to handle multiple concurrent scenes using visibility.
