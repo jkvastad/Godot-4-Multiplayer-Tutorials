@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://1brg5ganv74s"]
+
+[ext_resource type="Script" path="res://Main.cs" id="1_178y8"]
+[ext_resource type="PackedScene" uid="uid://d0ilweof3db7w" path="res://lobby.tscn" id="2_fsggb"]
+
+[node name="Main" type="Node" node_paths=PackedStringArray("_lobby")]
+script = ExtResource("1_178y8")
+_lobby = NodePath("Lobby")
+
+[node name="Lobby" parent="." instance=ExtResource("2_fsggb")]

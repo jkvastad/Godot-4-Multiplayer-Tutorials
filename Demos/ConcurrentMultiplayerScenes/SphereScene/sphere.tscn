@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://jo3ode1mo3kx"]
+
+[ext_resource type="Script" path="res://SphereScene/Sphere.cs" id="1_0p6w1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xf46e"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bx1lr"]
+material = SubResource("StandardMaterial3D_xf46e")
+
+[node name="Sphere" type="MeshInstance3D" node_paths=PackedStringArray("_synchronizer")]
+mesh = SubResource("SphereMesh_bx1lr")
+script = ExtResource("1_0p6w1")
+_synchronizer = NodePath("MultiplayerSynchronizer")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]

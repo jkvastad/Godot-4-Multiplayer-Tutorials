@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0ilweof3db7w"]
+
+[ext_resource type="Script" path="res://Lobby.cs" id="1_7waqn"]
+
+[node name="Lobby" type="Control" node_paths=PackedStringArray("_hostButton", "_joinButton", "_IPAddressInput")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7waqn")
+_hostButton = NodePath("HostButton")
+_joinButton = NodePath("JoinButton")
+_IPAddressInput = NodePath("IPAddress")
+
+[node name="IPAddress" type="LineEdit" parent="."]
+layout_mode = 0
+offset_top = 52.0
+offset_right = 238.0
+offset_bottom = 98.0
+text = "127.0.0.1"
+
+[node name="HostButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 109.0
+offset_bottom = 52.0
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 109.0
+offset_right = 238.0
+offset_bottom = 52.0
+text = "Join"

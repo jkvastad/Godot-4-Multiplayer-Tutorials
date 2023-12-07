@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv30oomt2mcg6"]
+
+[ext_resource type="Script" path="res://CubeScene/CubeScene.cs" id="1_8aeta"]
+[ext_resource type="PackedScene" uid="uid://mnt1wwc4wekp" path="res://CubeScene/cube.tscn" id="1_uv01k"]
+
+[node name="CubeScene" type="Node3D" node_paths=PackedStringArray("_controlNodes")]
+script = ExtResource("1_8aeta")
+_controlNodes = NodePath("Control")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.996466, -0.0136678, 0.0828753, -0.030273, 0.861919, 0.506141, -0.0783497, -0.506861, 0.85846, -0.302521, 1.33622, 2)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="Cube" parent="." instance=ExtResource("1_uv01k")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RequestColorPicker" type="ColorPickerButton" parent="Control"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 60.0
+offset_right = 176.0
+offset_bottom = 110.0
+
+[node name="RequestColorLabel" type="Label" parent="Control/RequestColorPicker"]
+layout_mode = 0
+offset_left = 137.0
+offset_right = 246.0
+offset_bottom = 50.0
+text = "Request Color"
+
+[node name="SetColorPicker" type="ColorPickerButton" parent="Control"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 110.0
+offset_right = 176.0
+offset_bottom = 160.0
+
+[node name="SetColorLabel" type="Label" parent="Control/SetColorPicker"]
+layout_mode = 0
+offset_left = 137.0
+offset_right = 246.0
+offset_bottom = 50.0
+text = "Set Color"
+
+[connection signal="color_changed" from="Control/RequestColorPicker" to="Cube" method="RequestCubeColor"]
+[connection signal="color_changed" from="Control/SetColorPicker" to="Cube" method="SetCubeColor"]

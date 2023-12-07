@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2syhjs11c13y"]
+
+[ext_resource type="Script" path="res://GameSession.cs" id="1_mge85"]
+
+[node name="GameSession" type="Node3D"]
+script = ExtResource("1_mge85")
+
+[node name="SwapSceneButton" type="Button" parent="."]
+offset_left = 601.0
+offset_top = 16.0
+offset_right = 700.0
+offset_bottom = 47.0
+text = "Swap Scene
+"
+
+[connection signal="pressed" from="SwapSceneButton" to="." method="SwapScene"]

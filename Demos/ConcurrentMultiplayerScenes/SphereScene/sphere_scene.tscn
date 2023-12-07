@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://digio166wqt0d"]
+
+[ext_resource type="Script" path="res://SphereScene/SphereScene.cs" id="1_u2lg1"]
+[ext_resource type="PackedScene" uid="uid://jo3ode1mo3kx" path="res://SphereScene/sphere.tscn" id="2_3o3n4"]
+
+[node name="SphereScene" type="Node3D" node_paths=PackedStringArray("_controlNodes")]
+script = ExtResource("1_u2lg1")
+_controlNodes = NodePath("Control")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.979923, 0.103146, -0.170621, -0.014063, 0.889403, 0.456907, 0.198879, -0.445334, 0.872998, -0.740677, 1.30554, 2)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+
+[node name="Sphere" parent="." instance=ExtResource("2_3o3n4")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RequestColorPicker" type="ColorPickerButton" parent="Control"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 60.0
+offset_right = 176.0
+offset_bottom = 110.0
+
+[node name="RequestColorLabel" type="Label" parent="Control/RequestColorPicker"]
+layout_mode = 0
+offset_left = 137.0
+offset_right = 246.0
+offset_bottom = 50.0
+text = "Request Color"
+
+[node name="SetColorPicker" type="ColorPickerButton" parent="Control"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 110.0
+offset_right = 176.0
+offset_bottom = 160.0
+
+[node name="SetColorLabel" type="Label" parent="Control/SetColorPicker"]
+layout_mode = 0
+offset_left = 137.0
+offset_right = 246.0
+offset_bottom = 50.0
+text = "Set Color"
+
+[connection signal="color_changed" from="Control/RequestColorPicker" to="Sphere" method="RequestSphereColor"]
+[connection signal="color_changed" from="Control/SetColorPicker" to="Sphere" method="SetSphereColor"]
