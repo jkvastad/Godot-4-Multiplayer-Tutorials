@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://5iy2mfi04rvq"]
+
+[ext_resource type="Script" uid="uid://faqbwnqncy1n" path="res://Client/Viewers/PlayerSeatView/PlayerSeatView.cs" id="1_vmbt6"]
+
+[node name="PlayerRoleView" type="Node" node_paths=PackedStringArray("AvailableSeats", "ToGameButton", "ColorPicker")]
+script = ExtResource("1_vmbt6")
+AvailableSeats = NodePath("HBoxContainer/VBoxContainer/AvailableSeats")
+ToGameButton = NodePath("HBoxContainer/VBoxContainer/ToGame")
+ColorPicker = NodePath("HBoxContainer/ColorPicker")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AvailableSeats" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ToGame" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+disabled = true
+text = "To Game"
+
+[node name="ColorPicker" type="ColorPicker" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3

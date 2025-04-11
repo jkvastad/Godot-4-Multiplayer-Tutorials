@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn2t6nduf4x61"]
+
+[ext_resource type="Script" uid="uid://cy4m4tnu8x2oa" path="res://Client/GameSession/ClientGameSession.cs" id="1_o6wch"]
+[ext_resource type="Script" uid="uid://cieeojnlvl02j" path="res://Shared/GameSessionNetwork/GameSessionNetwork.cs" id="2_r3x1j"]
+[ext_resource type="Script" uid="uid://sqvjawqxleoq" path="res://Client/GameSession/DebugCamera.cs" id="3_fa331"]
+
+[node name="GameSession" type="Node" node_paths=PackedStringArray("GameSessionNetwork", "Camera3D")]
+script = ExtResource("1_o6wch")
+GameSessionNetwork = NodePath("GameSessionNetwork")
+Camera3D = NodePath("Camera3D")
+
+[node name="GameSessionNetwork" type="Node" parent="."]
+script = ExtResource("2_r3x1j")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -0.00505424, 4, 6)
+script = ExtResource("3_fa331")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.94811, 2.30933)

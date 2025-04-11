@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://42g01200pkvm"]
+
+[ext_resource type="Script" uid="uid://hqiqsilsrjhk" path="res://Utilities/Button2D/Button2D.cs" id="1_m0ttc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j284h"]
+size = Vector2(0, 0)
+
+[node name="Button2D" type="Area2D" node_paths=PackedStringArray("Shape2D")]
+script = ExtResource("1_m0ttc")
+Shape2D = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j284h")

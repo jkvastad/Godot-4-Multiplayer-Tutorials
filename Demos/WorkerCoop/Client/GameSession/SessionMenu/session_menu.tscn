@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqmo8d3q4tn8x"]
+
+[ext_resource type="Script" uid="uid://c0d8x7by8f1hi" path="res://Client/GameSession/SessionMenu/SessionMenu.cs" id="1_omx5p"]
+
+[node name="SessionMenu" type="Node" node_paths=PackedStringArray("ReturnToGame", "ToSeatSelect", "DisconnectClient", "ExitToDesktop")]
+script = ExtResource("1_omx5p")
+ReturnToGame = NodePath("MenuBackground/MenuVBox/ReturnToGame")
+ToSeatSelect = NodePath("MenuBackground/MenuVBox/ToSeatSelect")
+DisconnectClient = NodePath("MenuBackground/MenuVBox/DisconnectClient")
+ExitToDesktop = NodePath("MenuBackground/MenuVBox/ExitToDesktop")
+
+[node name="Background" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBackground" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -24.5
+offset_right = 61.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuVBox" type="VBoxContainer" parent="MenuBackground"]
+layout_mode = 2
+
+[node name="ReturnToGame" type="Button" parent="MenuBackground/MenuVBox"]
+layout_mode = 2
+text = "Return to Game"
+
+[node name="ToSeatSelect" type="Button" parent="MenuBackground/MenuVBox"]
+layout_mode = 2
+text = "To Seat Select"
+
+[node name="DisconnectClient" type="Button" parent="MenuBackground/MenuVBox"]
+layout_mode = 2
+text = "Disconnect (to Lobby)"
+
+[node name="ExitToDesktop" type="Button" parent="MenuBackground/MenuVBox"]
+layout_mode = 2
+text = "Exit to Desktop"

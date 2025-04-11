@@ -23,5 +23,5 @@ func _set_synchronizer_ID():
 func _set_chat_box_ID():	
 	chat_box.set_multiplayer_authority(int($SetChatBoxAuthorityIDInput.text))
 	
-func _update_self_ID():	
+func _update_self_ID():		
 	$SelfAuthorityIDLine.text = str(multiplayer.get_unique_id())

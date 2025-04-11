@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2o3ds77ugx6n"]
+
+[ext_resource type="Script" uid="uid://d2yqbovcqdc4p" path="res://Client/ClientLobby.cs" id="1_iw75w"]
+[ext_resource type="Script" uid="uid://bb165gbsok1x4" path="res://Shared/LobbyNetwork.cs" id="2_u510e"]
+
+[node name="Lobby" type="Control" node_paths=PackedStringArray("IpInput", "PortInput", "JoinGame", "PlayerName", "LobbyNetwork")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iw75w")
+IpInput = NodePath("BoxContainer/LeftSideContainer/VBoxContainer/IpInput")
+PortInput = NodePath("BoxContainer/LeftSideContainer/VBoxContainer/PortInput")
+JoinGame = NodePath("BoxContainer/LeftSideContainer/VBoxContainer/JoinGame")
+PlayerName = NodePath("BoxContainer/LeftSideContainer/VBoxContainer/PlayerName")
+LobbyNetwork = NodePath("LobbyNetwork")
+
+[node name="LobbyNetwork" type="Node" parent="." node_paths=PackedStringArray("ClientLobby")]
+script = ExtResource("2_u510e")
+ClientLobby = NodePath("..")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="LeftSideContainer" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/LeftSideContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="JoinGame" type="Button" parent="BoxContainer/LeftSideContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join server"
+
+[node name="IpInput" type="LineEdit" parent="BoxContainer/LeftSideContainer/VBoxContainer"]
+layout_mode = 2
+text = "127.0.0.1"
+placeholder_text = "Enter IP..."
+
+[node name="PortInput" type="LineEdit" parent="BoxContainer/LeftSideContainer/VBoxContainer"]
+layout_mode = 2
+text = "7777"
+
+[node name="PlayerName" type="LineEdit" parent="BoxContainer/LeftSideContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "PlayerName..."
+
+[node name="RightSideContainer" type="HBoxContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/RightSideContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="ServerStats" type="HBoxContainer" parent="BoxContainer/RightSideContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ServerIpLabel" type="Label" parent="BoxContainer/RightSideContainer/VBoxContainer/ServerStats"]
+layout_mode = 2
+text = "Server IP:"
+
+[node name="CurrentServerIp" type="Label" parent="BoxContainer/RightSideContainer/VBoxContainer/ServerStats"]
+layout_mode = 2
+
+[node name="CurrentPlayersLabel" type="Label" parent="BoxContainer/RightSideContainer/VBoxContainer"]
+layout_mode = 2
+text = "CurrentPlayers:"
+
+[node name="CurrentPlayers" type="VBoxContainer" parent="BoxContainer/RightSideContainer/VBoxContainer"]
+layout_mode = 2

@@ -1,0 +1,19 @@
+{
+  "profiles": {
+	"Worker Coop": {
+	  "commandName": "Project"
+	},
+	"Debug Client": {
+	  "commandName": "Executable",
+	  "executablePath": "D:\\Tools\\Godot\\Godot_v4.4.1-stable_mono_win64\\Godot_v4.4.1-stable_mono_win64.exe",
+	  "commandLineArgs": "client timeout=600000 name=debug",
+	  "workingDirectory": "D:\\Projects\\Godot Projects\\worker-coop"
+	},
+	"Debug Server": {
+	  "commandName": "Executable",
+	  "executablePath": "D:\\Tools\\Godot\\Godot_v4.4.1-stable_mono_win64\\Godot_v4.4.1-stable_mono_win64.exe",
+	  "commandLineArgs": "server start seats=2 timeout=600000",
+	  "workingDirectory": "D:\\Projects\\Godot Projects\\worker-coop"
+	}
+  }
+}

@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7wfyg6r7onsr"]
+
+[ext_resource type="Script" uid="uid://q1gw61nb0j8s" path="res://Client/Viewers/WorkerGridView/GridBoxView.cs" id="1_emmob"]
+[ext_resource type="Shader" uid="uid://7hjvjra5x2a1" path="res://Client/Viewers/WorkerGridView/box_edges.gdshader" id="2_xpeqi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jwxns"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o3lis"]
+render_priority = 0
+shader = ExtResource("2_xpeqi")
+shader_parameter/cube_color = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vnh1c"]
+material = SubResource("ShaderMaterial_o3lis")
+
+[node name="GridBoxView" type="Area3D" node_paths=PackedStringArray("MeshInstance3D")]
+script = ExtResource("1_emmob")
+MeshInstance3D = NodePath("MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jwxns")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_vnh1c")

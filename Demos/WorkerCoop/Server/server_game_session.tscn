@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn0xl7biji4g3"]
+
+[ext_resource type="Script" uid="uid://p4jmi1ks21y5" path="res://Server/ServerGameSession.cs" id="1_k6rco"]
+[ext_resource type="Script" uid="uid://cieeojnlvl02j" path="res://Shared/GameSessionNetwork/GameSessionNetwork.cs" id="2_s6xm3"]
+
+[node name="GameSession" type="Node" node_paths=PackedStringArray("GameSessionNetwork")]
+script = ExtResource("1_k6rco")
+GameSessionNetwork = NodePath("GameSessionNetwork")
+
+[node name="GameSessionNetwork" type="Node" parent="." node_paths=PackedStringArray("ServerGameSession")]
+script = ExtResource("2_s6xm3")
+ServerGameSession = NodePath("..")

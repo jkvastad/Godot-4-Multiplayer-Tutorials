@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7ia6xcdyxbgq"]
+
+[ext_resource type="Script" uid="uid://3kyrdti2awff" path="res://Client/Viewers/WorkerGridView/GridHud/WorkerGridHud.cs" id="1_w70ur"]
+[ext_resource type="PackedScene" uid="uid://bd3v8ygjbn3de" path="res://Utilities/Button2D/button2d_wrapper.tscn" id="2_yf2ud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf2ud"]
+resource_local_to_scene = true
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irlr6"]
+resource_local_to_scene = true
+size = Vector2(0, 0)
+
+[node name="WorkerGridHud" type="Node" node_paths=PackedStringArray("PlayerName", "SeatId", "LeftSeat", "RightSeat")]
+script = ExtResource("1_w70ur")
+PlayerName = NodePath("VBoxContainer/PlayerInfoContainer/PlayerName")
+SeatId = NodePath("VBoxContainer/SeatInfoContainer/SeatId")
+LeftSeat = NodePath("VBoxContainer/SelectSeatContainer/LeftSeat")
+RightSeat = NodePath("VBoxContainer/SelectSeatContainer/RightSeat")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerInfoContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerLabel" type="Label" parent="VBoxContainer/PlayerInfoContainer"]
+layout_mode = 2
+text = "Player:"
+
+[node name="PlayerName" type="Label" parent="VBoxContainer/PlayerInfoContainer"]
+layout_mode = 2
+
+[node name="SeatInfoContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SeatLabel" type="Label" parent="VBoxContainer/SeatInfoContainer"]
+layout_mode = 2
+text = "Seat:"
+
+[node name="SeatId" type="Label" parent="VBoxContainer/SeatInfoContainer"]
+layout_mode = 2
+
+[node name="SelectSeatContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LeftSeat" parent="VBoxContainer/SelectSeatContainer" instance=ExtResource("2_yf2ud")]
+layout_mode = 2
+
+[node name="CollisionShape2D" parent="VBoxContainer/SelectSeatContainer/LeftSeat/Button2D" index="0"]
+shape = SubResource("RectangleShape2D_yf2ud")
+
+[node name="ButtonText" parent="VBoxContainer/SelectSeatContainer/LeftSeat" index="1"]
+text = "<-"
+
+[node name="RightSeat" parent="VBoxContainer/SelectSeatContainer" instance=ExtResource("2_yf2ud")]
+layout_mode = 2
+
+[node name="CollisionShape2D" parent="VBoxContainer/SelectSeatContainer/RightSeat/Button2D" index="0"]
+shape = SubResource("RectangleShape2D_irlr6")
+
+[node name="ButtonText" parent="VBoxContainer/SelectSeatContainer/RightSeat" index="1"]
+text = "->"
+
+[editable path="VBoxContainer/SelectSeatContainer/LeftSeat"]
+[editable path="VBoxContainer/SelectSeatContainer/RightSeat"]

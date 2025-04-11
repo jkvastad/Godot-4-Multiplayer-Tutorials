@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch7b4ohtk1ly8"]
+
+[ext_resource type="Script" uid="uid://btmh64h4lxv5n" path="res://Client/Viewers/WorkerGridView/WorkerGridView.cs" id="1_4u8ck"]
+
+[node name="WorkerGridView" type="Node"]
+script = ExtResource("1_4u8ck")

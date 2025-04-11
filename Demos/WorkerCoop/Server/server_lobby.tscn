@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://c35rmg0ut5xtj"]
+
+[ext_resource type="Script" uid="uid://cwf7siyoya5vk" path="res://Server/ServerLobby.cs" id="1_iw75w"]
+[ext_resource type="Script" uid="uid://bb165gbsok1x4" path="res://Shared/LobbyNetwork.cs" id="2_g5w1o"]
+
+[node name="Lobby" type="Control" node_paths=PackedStringArray("LobbyNetwork", "PortInput", "HostGame", "PlayerSeats")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iw75w")
+LobbyNetwork = NodePath("LobbyNetwork")
+PortInput = NodePath("VBoxContainer/PortInput")
+HostGame = NodePath("VBoxContainer/HostGame")
+PlayerSeats = NodePath("VBoxContainer/PlayerSeats")
+
+[node name="LobbyNetwork" type="Node" parent="." node_paths=PackedStringArray("ServerLobby")]
+script = ExtResource("2_g5w1o")
+ServerLobby = NodePath("..")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 324.0
+offset_bottom = 139.0
+
+[node name="HostGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Host Game"
+
+[node name="StartGame" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Start Game"
+
+[node name="PortInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+text = "7777"
+
+[node name="PlayerSeats" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+text = "2"
+placeholder_text = "Player Seats..."
